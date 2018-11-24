@@ -1,0 +1,29 @@
+#!/bin/sh
+
+if ! type git >/dev/null 2>&1; then
+  printf "\nNot found git, run command\n\n"
+  printf "    \033[36mbrew install git\033[0m\n"
+  exit 1
+fi
+
+set -eux
+
+REPO_NAME=${1:-terraform-account-name}
+git clone --depth 1 https://github.com/tmknom/template-terraform-aws-account.git "${REPO_NAME}"
+
+cd "${REPO_NAME}"
+rm -rf Makefile.terraform install .git
+
+sed -i "" -e "s/template-terraform-aws-account/${REPO_NAME}/g" README.md
+sed -i "" -e "s/include Makefile.terraform/include .Makefile.terraform/g" Makefile
+
+git init
+git add .
+git commit -m "Initial commit" -m "Based on https://github.com/tmknom/template-terraform-aws-account"
+
+# Download .Makefile.terraform
+make
+
+set +x
+printf "\nInstall success, run command\n\n"
+printf "    \033[36mcd %s && make install\033[0m\n" "${REPO_NAME}"
