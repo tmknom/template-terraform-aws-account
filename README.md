@@ -3,6 +3,8 @@
 [![CircleCI](https://circleci.com/gh/tmknom/template-terraform-aws-account.svg?style=svg)](https://circleci.com/gh/tmknom/template-terraform-aws-account)
 [![License](https://img.shields.io/github/license/tmknom/template-terraform-aws-account.svg)](https://opensource.org/licenses/Apache-2.0)
 
+Terraform template for AWS Account.
+
 ## Development
 
 ### Requirements
