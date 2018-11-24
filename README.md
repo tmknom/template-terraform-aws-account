@@ -5,6 +5,13 @@
 
 Terraform template for AWS Account.
 
+## Usage
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/tmknom/template-terraform-aws-account/master/install | sh -s terraform-aws-account
+cd terraform-aws-account && make install
+```
+
 ## Development
 
 ### Requirements
